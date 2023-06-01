@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+      args:
+        - SERVER_NAME=${SERVER_NAME}
+
+        - XDEBUG_ENABLE=${XDEBUG_ENABLE}
+        - XDEBUG_CLIENT_HOST=${XDEBUG_CLIENT_HOST}
+        - XDEBUG_MODE=${XDEBUG_MODE}
+
+        - APACHE_DOCUMENT_ROOT=${APACHE_DOCUMENT_ROOT}
+        - APACHE_SERVER_ADMIN=${APACHE_SERVER_ADMIN}
+    ports:
+      - 8080:80
+    volumes:
+      - ./app:/var/www/html
+      - ./web/apache2/000-default.conf:/etc/apache2/sites-available/000-default.conf
