@@ -3,6 +3,7 @@ version: '3'
 services:
 
   web:
+    container_name: web_container
     build:
       context: ./web
       dockerfile: Dockerfile
@@ -20,3 +21,18 @@ services:
     volumes:
       - ./app:/var/www/html
       - ./web/apache2/000-default.conf:/etc/apache2/sites-available/000-default.conf
+    depends_on:
+      - db
+
+  db:
+    container_name: db_container
+    image: postgres:15.3-alpine3.18
+    restart: always
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - ./db:/var/lib/postgresql/data
