@@ -20,7 +20,7 @@ Follow the steps below to quickly set up and configure the Docker image:
 
 **Note:** For `XDEBUG_CLIENT_HOST`, make sure to use the IP address of your host machine
 - For Linux, you can find the IP address by running the command `ip addr show | grep docker0`. Use the IP address associated with the `docker0` interface.
-- For Windows, you can use the special hostname `docker.host.internal` as the value for `XDEBUG_CLIENT_HOST`. This hostname resolves to the IP address of the host machine from within a Docker container.
+- For Windows, you can use the special hostname `host.docker.internal` as the value for `XDEBUG_CLIENT_HOST`. This hostname resolves to the IP address of the host machine from within a Docker container.
 
 
 3. Start the Docker container:
