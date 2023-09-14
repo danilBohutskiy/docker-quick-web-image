@@ -22,8 +22,9 @@ Follow the steps below to quickly set up and configure the Docker image:
 - For Linux, you can find the IP address by running the command `ip addr show | grep docker0`. Use the IP address associated with the `docker0` interface.
 - For Windows, you can use the special hostname `host.docker.internal` as the value for `XDEBUG_CLIENT_HOST`. This hostname resolves to the IP address of the host machine from within a Docker container.
 
+3. Add "app" directory and put your project inside.
 
-3. Start the Docker container:
+4. Start the Docker container:
 ```
 docker-compose up
 ```
