@@ -27,7 +27,7 @@ services:
   db:
     container_name: db_container
     image: postgres:15.3-alpine3.18
-    restart: always
+    restart: on-failure
     environment:
       - PGDATA=/tmp
       - POSTGRES_DB=${DB_NAME}
