@@ -21,6 +21,10 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     && docker-php-ext-install zip pdo_pgsql pgsql
 
+RUN docker-php-ext-configure pcntl --enable-pcntl \
+  && docker-php-ext-install \
+    pcntl
+
 ARG XDEBUG_ENABLE
 ARG XDEBUG_CLIENT_HOST
 ARG XDEBUG_MODE
